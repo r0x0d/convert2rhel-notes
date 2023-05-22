@@ -1,24 +1,36 @@
-name: ci
+name: Deploy
+
 on:
   push:
     branches:
-      - master
       - main
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
+
       - uses: actions/cache@v2
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-roamlinks-plugin
+
+      - name: Install dependencies
+        run: |
+          pip install \
+            weasyprint \
+            mkdocs-material \
+            mkdocs-roamlinks-plugin \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-git-authors-plugin \
+            mkdocs-pdf-export-plugin
       # - run: pip install mkdocs-mermaid2-plugin
       - run: mkdocs gh-deploy --force
