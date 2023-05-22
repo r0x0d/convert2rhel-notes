@@ -1,11 +1,7 @@
-# Obsidian Notes
+# Convert2RHEL Notes
 
-Publish your public notes with MkDocs
+Notes for my development in [Convert2RHEL](https://github.com/oamg/convert2rhel)
 
-## Hello World!
+## RHELC (Jira tasks)
 
-The `index.md` in the `/docs` folder is the homepage you see here.
-
-The folders in `/docs` appear as the main sections on the navigation bar.
-
-The notes appear as pages within these sections. For example, [[Note 1]] in `Topic 1`
+- [[RHELC-889]]
